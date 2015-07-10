@@ -23,11 +23,11 @@
       source = source || this.getAttribute("data-src");
       if (source) {
         thisElement = $(this);
-        thisElement.addClass('loading');
+        thisElement.addClass('spinner');
         bgImg = new Image();
         bgImg.onload = function () {
           thisElement.css('backgroundImage', 'url("' + source + '")');
-          thisElement.removeClass('loading');
+          thisElement.removeClass('spinner');
         };
         bgImg.src = source;
         bgImg = null;
