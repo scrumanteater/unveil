@@ -8,7 +8,18 @@
  * https://github.com/luis-almeida
  */
 ;
-(function ($) {
+(function (factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD
+    define(['jquery'], factory);
+  } else if (typeof exports === 'object') {
+    // CommonJS
+    factory(require('jquery'));
+  } else {
+    // Browser globals
+    factory(jQuery);
+  }
+}(function ($) {
   $.fn.unveil = function (threshold, callback) {
     var $w = $(window),
         th = threshold || 0,
@@ -52,4 +63,4 @@
     unveil();
     return this;
   };
-})(window.jQuery || window.Zepto);
+}));
